@@ -9,6 +9,7 @@ import javax.swing.JComboBox;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.JTextArea;
 import javax.swing.JTextField;
 
 public class MyWindow extends JFrame implements ActionListener {
@@ -19,9 +20,10 @@ public class MyWindow extends JFrame implements ActionListener {
 	private JTextField country;
 	private JTextField year;
 	private JTextField price;
+	private JComboBox<String> type;
 	private JComboBox<String> colour;
 	private JComboBox<String> crapeVariety;
-	private JComboBox<String> wineDescription;
+	private JTextArea wineDescription;
 
 	public MyWindow() {
 		super("Winebase");
@@ -34,6 +36,7 @@ public class MyWindow extends JFrame implements ActionListener {
 		createButton(panel);
 		createTextFields(panel);
 		createJComboBox(panel);
+		createJTextArea(panel);
 
 		add(panel);
 		setVisible(true);
@@ -41,13 +44,17 @@ public class MyWindow extends JFrame implements ActionListener {
 	}
 
 	private void createJComboBox(JPanel panel) {
-		colour = new JComboBox<>(ColourController.getColourwine());
+		colour = new JComboBox<>(ComboBoxes.getColourwine());
 		colour.setBounds(140, 70, 100, 25);
 		panel.add(colour);
 
-		crapeVariety = new JComboBox<>(CrapeVarietyController.getCrapevariety());
+		crapeVariety = new JComboBox<>(ComboBoxes.getCrapevariety());
 		crapeVariety.setBounds(140, 270, 100, 25);
 		panel.add(crapeVariety);
+
+		type = new JComboBox<>(ComboBoxes.getType());
+		type.setBounds(140, 320, 100, 25);
+		panel.add(type);
 
 	}
 
@@ -82,8 +89,13 @@ public class MyWindow extends JFrame implements ActionListener {
 		crapeVarietyLabel.setForeground(Color.white);
 		panel.add(crapeVarietyLabel);
 
+		JLabel typeLabel = new JLabel("Type");
+		typeLabel.setBounds(20, 320, 100, 25);
+		typeLabel.setForeground(Color.white);
+		panel.add(typeLabel);
+
 		JLabel descriptionLabel = new JLabel("Wine Description");
-		descriptionLabel.setBounds(20, 320, 100, 25);
+		descriptionLabel.setBounds(20, 370, 100, 25);
 		descriptionLabel.setForeground(Color.white);
 		panel.add(descriptionLabel);
 
@@ -121,6 +133,14 @@ public class MyWindow extends JFrame implements ActionListener {
 		panel.add(price);
 		price.setEditable(true);
 		price.setEnabled(true);
+	}
+
+	private void createJTextArea(JPanel panel) {
+		wineDescription = new JTextArea();
+		wineDescription.setBounds(140, 370, 140, 125);
+		panel.add(wineDescription);
+		wineDescription.setEditable(true);
+		wineDescription.setEnabled(true);
 	}
 
 	private JPanel createPanel() {
