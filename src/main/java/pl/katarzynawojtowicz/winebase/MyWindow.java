@@ -19,6 +19,7 @@ public class MyWindow extends JFrame implements ActionListener {
 	private JTextField country;
 	private JTextField year;
 	private JTextField price;
+	private JComboBox<String> colour;
 	private JComboBox<String> crapeVariety;
 	private JComboBox<String> wineDescription;
 
@@ -31,9 +32,22 @@ public class MyWindow extends JFrame implements ActionListener {
 		JPanel panel = createPanel();
 		createLabels(panel);
 		createButton(panel);
+		createTextFields(panel);
+		createJComboBox(panel);
 
 		add(panel);
 		setVisible(true);
+
+	}
+
+	private void createJComboBox(JPanel panel) {
+		colour = new JComboBox<>(ColourController.getColourwine());
+		colour.setBounds(140, 70, 100, 25);
+		panel.add(colour);
+
+		crapeVariety = new JComboBox<>(CrapeVarietyController.getCrapevariety());
+		crapeVariety.setBounds(140, 270, 100, 25);
+		panel.add(crapeVariety);
 
 	}
 
@@ -81,6 +95,32 @@ public class MyWindow extends JFrame implements ActionListener {
 		saveButton.addActionListener((ActionListener) this);
 		panel.add(saveButton);
 
+	}
+
+	private void createTextFields(JPanel panel) {
+		name = new JTextField();
+		name.setBounds(140, 20, 100, 25);
+		panel.add(name);
+		name.setEditable(true);
+		name.setEnabled(true);
+
+		country = new JTextField();
+		country.setBounds(140, 120, 100, 25);
+		panel.add(country);
+		country.setEditable(true);
+		country.setEnabled(true);
+
+		year = new JTextField();
+		year.setBounds(140, 170, 100, 25);
+		panel.add(year);
+		year.setEditable(true);
+		year.setEnabled(true);
+
+		price = new JTextField();
+		price.setBounds(140, 220, 100, 25);
+		panel.add(price);
+		price.setEditable(true);
+		price.setEnabled(true);
 	}
 
 	private JPanel createPanel() {
