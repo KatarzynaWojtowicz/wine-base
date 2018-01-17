@@ -26,7 +26,7 @@ public class MyWindow extends JFrame implements ActionListener {
 	private JTextArea wineDescription;
 
 	public MyWindow() {
-		super("Winebase");
+		super("Winebase - Add");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setLocation(200, 200);
 		setSize(600, 600);
