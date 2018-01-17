@@ -1,7 +1,7 @@
-package pl.katarzynawojtowicz.winebase;
+package pl.katarzynawojtowicz.winebase.view;
 
-import static pl.katarzynawojtowicz.winebase.StyleConstants.DEFAULT_HEIGHT;
-import static pl.katarzynawojtowicz.winebase.StyleConstants.DEFAULT_WIDTH;
+import static pl.katarzynawojtowicz.winebase.constants.StyleConstants.DEFAULT_HEIGHT;
+import static pl.katarzynawojtowicz.winebase.constants.StyleConstants.DEFAULT_WIDTH;
 
 import java.awt.Color;
 import java.awt.event.ActionEvent;
@@ -13,6 +13,8 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
+
+import pl.katarzynawojtowicz.winebase.constants.ComboBoxValues;
 
 public class SearchJFrame extends JFrame implements ActionListener {
 
@@ -44,15 +46,15 @@ public class SearchJFrame extends JFrame implements ActionListener {
 	}
 
 	private void createJComboBox(JPanel searchPanel) {
-		colour = new JComboBox<>(ComboBoxes.getColourwine());
+		colour = new JComboBox<>(ComboBoxValues.COLOUR_WINE);
 		colour.setBounds(140, 50, DEFAULT_WIDTH, DEFAULT_HEIGHT);
 		searchPanel.add(colour);
 
-		crapeVariety = new JComboBox<>(ComboBoxes.getCrapevariety());
+		crapeVariety = new JComboBox<>(ComboBoxValues.CRAPE_VARIETY);
 		crapeVariety.setBounds(620, 50, DEFAULT_WIDTH, DEFAULT_HEIGHT);
 		searchPanel.add(crapeVariety);
 
-		type = new JComboBox<>(ComboBoxes.getType());
+		type = new JComboBox<>(ComboBoxValues.TYPE);
 		type.setBounds(740, 50, DEFAULT_WIDTH, DEFAULT_HEIGHT);
 		searchPanel.add(type);
 	}

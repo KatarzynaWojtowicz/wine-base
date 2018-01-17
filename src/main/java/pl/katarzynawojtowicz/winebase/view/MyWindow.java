@@ -1,4 +1,4 @@
-package pl.katarzynawojtowicz.winebase;
+package pl.katarzynawojtowicz.winebase.view;
 
 import java.awt.Color;
 import java.awt.event.ActionEvent;
@@ -11,6 +11,8 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
+
+import pl.katarzynawojtowicz.winebase.constants.ComboBoxValues;
 
 public class MyWindow extends JFrame implements ActionListener {
 	private static final long serialVersionUID = 1L;
@@ -44,15 +46,15 @@ public class MyWindow extends JFrame implements ActionListener {
 	}
 
 	private void createJComboBox(JPanel panel) {
-		colour = new JComboBox<>(ComboBoxes.getColourwine());
+		colour = new JComboBox<>(ComboBoxValues.COLOUR_WINE);
 		colour.setBounds(140, 70, 100, 25);
 		panel.add(colour);
 
-		crapeVariety = new JComboBox<>(ComboBoxes.getCrapevariety());
+		crapeVariety = new JComboBox<>(ComboBoxValues.CRAPE_VARIETY);
 		crapeVariety.setBounds(140, 270, 100, 25);
 		panel.add(crapeVariety);
 
-		type = new JComboBox<>(ComboBoxes.getType());
+		type = new JComboBox<>(ComboBoxValues.TYPE);
 		type.setBounds(140, 320, 100, 25);
 		panel.add(type);
 

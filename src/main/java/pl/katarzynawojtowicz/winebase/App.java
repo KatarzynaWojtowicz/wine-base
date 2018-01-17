@@ -1,5 +1,8 @@
 package pl.katarzynawojtowicz.winebase;
 
+import pl.katarzynawojtowicz.winebase.view.MyWindow;
+import pl.katarzynawojtowicz.winebase.view.SearchJFrame;
+
 /**
  * Hello world!
  *
