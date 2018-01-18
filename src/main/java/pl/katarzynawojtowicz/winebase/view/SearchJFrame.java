@@ -12,6 +12,8 @@ import javax.swing.JComboBox;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.JScrollPane;
+import javax.swing.JTable;
 import javax.swing.JTextField;
 
 import pl.katarzynawojtowicz.winebase.constants.ComboBoxValues;
@@ -27,18 +29,20 @@ public class SearchJFrame extends JFrame implements ActionListener {
 	private JComboBox<String> type;
 	private JComboBox<String> colour;
 	private JComboBox<String> crapeVariety;
+	private JTable searchResultTable;
 
 	public SearchJFrame() {
 		super("Winebase - Search");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setLocation(200, 200);
-		setSize(1000, 1000);
+		setSize(880, 1000);
 
 		JPanel searchPanel = createPanel();
 		createLabels(searchPanel);
 		createButton(searchPanel);
 		createTextFields(searchPanel);
 		createJComboBox(searchPanel);
+		createTable(searchPanel);
 
 		add(searchPanel);
 		setVisible(true);
@@ -84,7 +88,7 @@ public class SearchJFrame extends JFrame implements ActionListener {
 
 	private void createButton(JPanel searchPanel) {
 		searchButton = new JButton("Search");
-		searchButton.setBounds(350, 420, DEFAULT_WIDTH, DEFAULT_HEIGHT);
+		searchButton.setBounds(350, 120, DEFAULT_WIDTH, DEFAULT_HEIGHT);
 		searchButton.addActionListener((ActionListener) this);
 		searchPanel.add(searchButton);
 
@@ -125,6 +129,17 @@ public class SearchJFrame extends JFrame implements ActionListener {
 		typeLabel.setBounds(740, 20, DEFAULT_WIDTH, DEFAULT_HEIGHT);
 		typeLabel.setForeground(Color.white);
 		searchPanel.add(typeLabel);
+
+	}
+
+	private void createTable(JPanel searchPanel) {
+
+		Object[][] data = { { "Carlo Rossi", "pink", "USA", 2016, "5$", "Chardonnay", "Sweet" } };
+		Object columnName[] = { "Name", "Colour", "Country", "Year", "Price", "Crape Variety", "Type" };
+		JTable searchResultTable = new JTable(data, columnName);
+		JScrollPane scrollPane = new JScrollPane(searchResultTable);
+		scrollPane.setBounds(20, 170, 820, 300);
+		searchPanel.add(scrollPane);
 
 	}
 
