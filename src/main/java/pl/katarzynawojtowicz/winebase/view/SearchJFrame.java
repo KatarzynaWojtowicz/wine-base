@@ -137,6 +137,10 @@ public class SearchJFrame extends JFrame implements ActionListener {
 		Object[][] data = { { "Carlo Rossi", "pink", "USA", 2016, "5$", "Chardonnay", "Sweet" } };
 		Object columnName[] = { "Name", "Colour", "Country", "Year", "Price", "Crape Variety", "Type" };
 		JTable searchResultTable = new JTable(data, columnName);
+
+		searchResultTable.getTableHeader().setReorderingAllowed(false);
+		searchResultTable.getTableHeader().setResizingAllowed(false);
+
 		JScrollPane scrollPane = new JScrollPane(searchResultTable);
 		scrollPane.setBounds(20, 170, 820, 300);
 		searchPanel.add(scrollPane);
