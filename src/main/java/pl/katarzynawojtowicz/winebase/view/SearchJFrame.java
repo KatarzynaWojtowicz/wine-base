@@ -136,7 +136,7 @@ public class SearchJFrame extends JFrame implements ActionListener {
 
 		Object[][] data = { { "Carlo Rossi", "pink", "USA", 2016, "5$", "Chardonnay", "Sweet" } };
 		Object columnName[] = { "Name", "Colour", "Country", "Year", "Price", "Crape Variety", "Type" };
-		JTable searchResultTable = new JTable(data, columnName);
+		JTable searchResultTable = new NonEditableJTable(data, columnName);
 
 		searchResultTable.getTableHeader().setReorderingAllowed(false);
 		searchResultTable.getTableHeader().setResizingAllowed(false);
