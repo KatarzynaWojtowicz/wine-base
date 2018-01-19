@@ -28,7 +28,7 @@ public class SearchJFrame extends JFrame implements ActionListener {
 	private JTextField priceTo;
 	private JComboBox<String> type;
 	private JComboBox<String> colour;
-	private JComboBox<String> crapeVariety;
+	private JComboBox<String> grapeVariety;
 	private JTable searchResultTable;
 
 	public SearchJFrame() {
@@ -54,9 +54,9 @@ public class SearchJFrame extends JFrame implements ActionListener {
 		colour.setBounds(140, 50, DEFAULT_WIDTH, DEFAULT_HEIGHT);
 		searchPanel.add(colour);
 
-		crapeVariety = new JComboBox<>(ComboBoxValues.CRAPE_VARIETY);
-		crapeVariety.setBounds(620, 50, DEFAULT_WIDTH, DEFAULT_HEIGHT);
-		searchPanel.add(crapeVariety);
+		grapeVariety = new JComboBox<>(ComboBoxValues.GRAPE_VARIETY);
+		grapeVariety.setBounds(620, 50, DEFAULT_WIDTH, DEFAULT_HEIGHT);
+		searchPanel.add(grapeVariety);
 
 		type = new JComboBox<>(ComboBoxValues.TYPE);
 		type.setBounds(740, 50, DEFAULT_WIDTH, DEFAULT_HEIGHT);
@@ -120,10 +120,10 @@ public class SearchJFrame extends JFrame implements ActionListener {
 		priceLabel.setForeground(Color.white);
 		searchPanel.add(priceLabel);
 
-		JLabel crapeVarietyLabel = new JLabel("Crape Variety");
-		crapeVarietyLabel.setBounds(620, 20, DEFAULT_WIDTH, DEFAULT_HEIGHT);
-		crapeVarietyLabel.setForeground(Color.white);
-		searchPanel.add(crapeVarietyLabel);
+		JLabel grapeVarietyLabel = new JLabel("Grape Variety");
+		grapeVarietyLabel.setBounds(620, 20, DEFAULT_WIDTH, DEFAULT_HEIGHT);
+		grapeVarietyLabel.setForeground(Color.white);
+		searchPanel.add(grapeVarietyLabel);
 
 		JLabel typeLabel = new JLabel("Type");
 		typeLabel.setBounds(740, 20, DEFAULT_WIDTH, DEFAULT_HEIGHT);
@@ -135,7 +135,7 @@ public class SearchJFrame extends JFrame implements ActionListener {
 	private void createTable(JPanel searchPanel) {
 
 		Object[][] data = { { "Carlo Rossi", "pink", "USA", 2016, "5$", "Chardonnay", "Sweet" } };
-		Object columnName[] = { "Name", "Colour", "Country", "Year", "Price", "Crape Variety", "Type" };
+		Object columnName[] = { "Name", "Colour", "Country", "Year", "Price", "Grape Variety", "Type" };
 		JTable searchResultTable = new NonEditableJTable(data, columnName);
 
 		searchResultTable.getTableHeader().setReorderingAllowed(false);

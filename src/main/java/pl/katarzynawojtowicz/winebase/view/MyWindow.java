@@ -24,7 +24,7 @@ public class MyWindow extends JFrame implements ActionListener {
 	private JTextField price;
 	private JComboBox<String> type;
 	private JComboBox<String> colour;
-	private JComboBox<String> crapeVariety;
+	private JComboBox<String> grapeVariety;
 	private JTextArea wineDescription;
 
 	public MyWindow() {
@@ -50,9 +50,9 @@ public class MyWindow extends JFrame implements ActionListener {
 		colour.setBounds(350, 20, 100, 25);
 		panel.add(colour);
 
-		crapeVariety = new JComboBox<>(ComboBoxValues.CRAPE_VARIETY);
-		crapeVariety.setBounds(350, 100, 100, 25);
-		panel.add(crapeVariety);
+		grapeVariety = new JComboBox<>(ComboBoxValues.GRAPE_VARIETY);
+		grapeVariety.setBounds(350, 100, 100, 25);
+		panel.add(grapeVariety);
 
 		type = new JComboBox<>(ComboBoxValues.TYPE);
 		type.setBounds(350, 60, 100, 25);
@@ -86,10 +86,10 @@ public class MyWindow extends JFrame implements ActionListener {
 		priceLabel.setForeground(Color.white);
 		panel.add(priceLabel);
 
-		JLabel crapeVarietyLabel = new JLabel("Crape Variety");
-		crapeVarietyLabel.setBounds(240, 100, 100, 25);
-		crapeVarietyLabel.setForeground(Color.white);
-		panel.add(crapeVarietyLabel);
+		JLabel grapeVarietyLabel = new JLabel("Grape Variety");
+		grapeVarietyLabel.setBounds(240, 100, 100, 25);
+		grapeVarietyLabel.setForeground(Color.white);
+		panel.add(grapeVarietyLabel);
 
 		JLabel typeLabel = new JLabel("Type");
 		typeLabel.setBounds(240, 60, 100, 25);
