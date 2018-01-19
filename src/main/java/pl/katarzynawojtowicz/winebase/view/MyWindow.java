@@ -31,7 +31,7 @@ public class MyWindow extends JFrame implements ActionListener {
 		super("Winebase - Add");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setLocation(200, 200);
-		setSize(600, 600);
+		setSize(740, 600);
 
 		JPanel panel = createPanel();
 		createLabels(panel);
@@ -47,15 +47,15 @@ public class MyWindow extends JFrame implements ActionListener {
 
 	private void createJComboBox(JPanel panel) {
 		colour = new JComboBox<>(ComboBoxValues.COLOUR_WINE);
-		colour.setBounds(140, 70, 100, 25);
+		colour.setBounds(350, 20, 100, 25);
 		panel.add(colour);
 
 		crapeVariety = new JComboBox<>(ComboBoxValues.CRAPE_VARIETY);
-		crapeVariety.setBounds(140, 270, 100, 25);
+		crapeVariety.setBounds(350, 100, 100, 25);
 		panel.add(crapeVariety);
 
 		type = new JComboBox<>(ComboBoxValues.TYPE);
-		type.setBounds(140, 320, 100, 25);
+		type.setBounds(350, 60, 100, 25);
 		panel.add(type);
 
 	}
@@ -67,37 +67,37 @@ public class MyWindow extends JFrame implements ActionListener {
 		panel.add(nameLabel);
 
 		JLabel colourLabel = new JLabel("Colour");
-		colourLabel.setBounds(20, 70, 100, 25);
+		colourLabel.setBounds(240, 20, 100, 25);
 		colourLabel.setForeground(Color.white);
 		panel.add(colourLabel);
 
 		JLabel countryLabel = new JLabel("Country");
-		countryLabel.setBounds(20, 120, 100, 25);
+		countryLabel.setBounds(20, 60, 100, 25);
 		countryLabel.setForeground(Color.white);
 		panel.add(countryLabel);
 
 		JLabel yearLabel = new JLabel("Year");
-		yearLabel.setBounds(20, 170, 100, 25);
+		yearLabel.setBounds(20, 100, 100, 25);
 		yearLabel.setForeground(Color.white);
 		panel.add(yearLabel);
 
 		JLabel priceLabel = new JLabel("Price");
-		priceLabel.setBounds(20, 220, 100, 25);
+		priceLabel.setBounds(500, 60, 100, 25);
 		priceLabel.setForeground(Color.white);
 		panel.add(priceLabel);
 
 		JLabel crapeVarietyLabel = new JLabel("Crape Variety");
-		crapeVarietyLabel.setBounds(20, 270, 100, 25);
+		crapeVarietyLabel.setBounds(240, 100, 100, 25);
 		crapeVarietyLabel.setForeground(Color.white);
 		panel.add(crapeVarietyLabel);
 
 		JLabel typeLabel = new JLabel("Type");
-		typeLabel.setBounds(20, 320, 100, 25);
+		typeLabel.setBounds(240, 60, 100, 25);
 		typeLabel.setForeground(Color.white);
 		panel.add(typeLabel);
 
 		JLabel descriptionLabel = new JLabel("Wine Description");
-		descriptionLabel.setBounds(20, 370, 100, 25);
+		descriptionLabel.setBounds(20, 140, 100, 25);
 		descriptionLabel.setForeground(Color.white);
 		panel.add(descriptionLabel);
 
@@ -105,7 +105,7 @@ public class MyWindow extends JFrame implements ActionListener {
 
 	private void createButton(JPanel panel) {
 		saveButton = new JButton("Save");
-		saveButton.setBounds(350, 420, 100, 25);
+		saveButton.setBounds(600, 420, 100, 25);
 		saveButton.addActionListener((ActionListener) this);
 		panel.add(saveButton);
 
@@ -113,25 +113,25 @@ public class MyWindow extends JFrame implements ActionListener {
 
 	private void createTextFields(JPanel panel) {
 		name = new JTextField();
-		name.setBounds(140, 20, 100, 25);
+		name.setBounds(110, 20, 100, 25);
 		panel.add(name);
 		name.setEditable(true);
 		name.setEnabled(true);
 
 		country = new JTextField();
-		country.setBounds(140, 120, 100, 25);
+		country.setBounds(110, 60, 100, 25);
 		panel.add(country);
 		country.setEditable(true);
 		country.setEnabled(true);
 
 		year = new JTextField();
-		year.setBounds(140, 170, 100, 25);
+		year.setBounds(110, 100, 100, 25);
 		panel.add(year);
 		year.setEditable(true);
 		year.setEnabled(true);
 
 		price = new JTextField();
-		price.setBounds(140, 220, 100, 25);
+		price.setBounds(580, 60, 100, 25);
 		panel.add(price);
 		price.setEditable(true);
 		price.setEnabled(true);
@@ -139,7 +139,7 @@ public class MyWindow extends JFrame implements ActionListener {
 
 	private void createJTextArea(JPanel panel) {
 		wineDescription = new JTextArea();
-		wineDescription.setBounds(140, 370, 140, 125);
+		wineDescription.setBounds(20, 160, 680, 250);
 		panel.add(wineDescription);
 		wineDescription.setEditable(true);
 		wineDescription.setEnabled(true);

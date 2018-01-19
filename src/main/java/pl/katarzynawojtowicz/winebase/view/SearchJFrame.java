@@ -35,7 +35,7 @@ public class SearchJFrame extends JFrame implements ActionListener {
 		super("Winebase - Search");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setLocation(200, 200);
-		setSize(880, 1000);
+		setSize(880, 600);
 
 		JPanel searchPanel = createPanel();
 		createLabels(searchPanel);
