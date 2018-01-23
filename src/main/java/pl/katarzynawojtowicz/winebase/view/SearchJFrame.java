@@ -6,6 +6,11 @@ import static pl.katarzynawojtowicz.winebase.constants.StyleConstants.DEFAULT_WI
 import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
 
 import javax.swing.JButton;
 import javax.swing.JComboBox;
@@ -15,6 +20,7 @@ import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.JTextField;
+import javax.swing.table.DefaultTableModel;
 
 import pl.katarzynawojtowicz.winebase.constants.ComboBoxValues;
 
@@ -30,6 +36,7 @@ public class SearchJFrame extends JFrame implements ActionListener {
 	private JComboBox<String> colour;
 	private JComboBox<String> grapeVariety;
 	private JTable searchResultTable;
+	private DefaultTableModel model;
 
 	public SearchJFrame() {
 		super("Winebase - Search");
@@ -136,7 +143,8 @@ public class SearchJFrame extends JFrame implements ActionListener {
 
 		Object[][] data = { { "Carlo Rossi", "pink", "USA", 2016, "5$", "Chardonnay", "Sweet" } };
 		Object columnName[] = { "Name", "Colour", "Country", "Year", "Price", "Grape Variety", "Type" };
-		JTable searchResultTable = new NonEditableJTable(data, columnName);
+		model = new DefaultTableModel(data, columnName);
+		searchResultTable = new NonEditableJTable(model);
 
 		searchResultTable.getTableHeader().setReorderingAllowed(false);
 		searchResultTable.getTableHeader().setResizingAllowed(false);
@@ -155,8 +163,33 @@ public class SearchJFrame extends JFrame implements ActionListener {
 	}
 
 	@Override
-	public void actionPerformed(ActionEvent e) {
-		// TODO Auto-generated method stub
+	public void actionPerformed(ActionEvent event) {
+		for (int i = model.getRowCount() - 1; i >= 0; i--) {
+			model.removeRow(i);
+		}
+
+		try {
+			Class.forName("com.mysql.jdbc.Driver").newInstance();
+			Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/winebase", "root",
+					"password");
+			Statement statement = connection.createStatement();
+			ResultSet resultSet = statement.executeQuery("SELECT * FROM wine");
+
+			while (resultSet.next()) {
+				int idWine = resultSet.getInt("id_wine");
+				String wineName = resultSet.getString("wine_name");
+				String wineCountry = resultSet.getString("wine_country");
+
+				model.addRow(new Object[] { idWine, wineName, wineCountry });
+			}
+
+			statement.close();
+			connection.close();
+
+		} catch (InstantiationException | IllegalAccessException | ClassNotFoundException | SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 
 	}
 
