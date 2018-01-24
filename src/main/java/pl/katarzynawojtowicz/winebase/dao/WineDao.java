@@ -12,7 +12,11 @@ import pl.katarzynawojtowicz.winebase.model.Wine;
 
 public class WineDao {
 
-	private static final String SQL_SELECT_ALL = "SELECT * FROM wine";
+	private static final String SQL_SELECT_ALL = "SELECT "
+			+ "wine_name, wine_country, wine_year, wine_price, wine_type, grape_variety, colour FROM wine "
+			+ "INNER JOIN wine_type ON wine.id_type = wine_type.id_type "
+			+ "INNER JOIN grape_variety ON wine.id_grape_variety = grape_variety.id_grape_variety "
+			+ "INNER JOIN colour ON wine.id_colour = colour.id_colour";
 
 	private static final String DB_PASSWORD = "password";
 	private static final String DB_USER = "root";
@@ -29,13 +33,14 @@ public class WineDao {
 
 			while (resultSet.next()) {
 				Wine w = new Wine();
+
 				w.setWineName(resultSet.getString("wine_name"));
 				w.setWineCountry(resultSet.getString("wine_country"));
 				w.setWineYear(resultSet.getInt("wine_year"));
 				w.setWinePrice(resultSet.getDouble("wine_price"));
-				w.setIdType(resultSet.getInt("id_type"));
-				w.setIdGrapeVariety(resultSet.getInt("id_grape_variety"));
-				w.setIdColour(resultSet.getInt("id_colour"));
+				w.setWineType(resultSet.getString("wine_type"));
+				w.setGrapeVariety(resultSet.getString("grape_variety"));
+				w.setColour(resultSet.getString("colour"));
 
 				wineList.add(w);
 			}

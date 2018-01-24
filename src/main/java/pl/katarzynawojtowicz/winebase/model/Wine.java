@@ -7,9 +7,9 @@ public class Wine {
 	private int wineYear;
 	private double winePrice;
 	private String wineDescription;
-	private int idType;
-	private int idGrapeVariety;
-	private int idColour;
+	private String wineType;
+	private String grapeVariety;
+	private String colour;
 
 	public int getIdWine() {
 		return idWine;
@@ -59,27 +59,28 @@ public class Wine {
 		this.wineDescription = wineDescription;
 	}
 
-	public int getIdType() {
-		return idType;
+	public String getWineType() {
+		return wineType;
 	}
 
-	public void setIdType(int idType) {
-		this.idType = idType;
+	public void setWineType(String wineType) {
+		this.wineType = wineType;
 	}
 
-	public int getIdGrapeVariety() {
-		return idGrapeVariety;
+	public String getGrapeVariety() {
+		return grapeVariety;
 	}
 
-	public void setIdGrapeVariety(int idGrapeVariety) {
-		this.idGrapeVariety = idGrapeVariety;
+	public void setGrapeVariety(String grapeVariety) {
+		this.grapeVariety = grapeVariety;
 	}
 
-	public int getIdColour() {
-		return idColour;
+	public String getColour() {
+		return colour;
 	}
 
-	public void setIdColour(int idColour) {
-		this.idColour = idColour;
+	public void setColour(String colour) {
+		this.colour = colour;
 	}
+
 }

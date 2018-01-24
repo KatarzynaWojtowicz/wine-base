@@ -171,8 +171,8 @@ public class SearchJFrame extends JFrame implements ActionListener {
 		List<Wine> wineList = this.dao.findWine();
 		for (Wine w : wineList) {
 
-			model.addRow(new Object[] { w.getWineName(), w.getIdColour(), w.getWineCountry(), w.getWineYear(),
-					w.getWinePrice(), w.getIdGrapeVariety(), w.getIdType() });
+			model.addRow(new Object[] { w.getWineName(), w.getColour(), w.getWineCountry(), w.getWineYear(),
+					w.getWinePrice(), w.getGrapeVariety(), w.getWineType() });
 		}
 
 	}
