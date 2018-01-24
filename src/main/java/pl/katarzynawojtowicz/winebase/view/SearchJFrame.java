@@ -6,11 +6,7 @@ import static pl.katarzynawojtowicz.winebase.constants.StyleConstants.DEFAULT_WI
 import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
+import java.util.List;
 
 import javax.swing.JButton;
 import javax.swing.JComboBox;
@@ -23,6 +19,8 @@ import javax.swing.JTextField;
 import javax.swing.table.DefaultTableModel;
 
 import pl.katarzynawojtowicz.winebase.constants.ComboBoxValues;
+import pl.katarzynawojtowicz.winebase.dao.WineDao;
+import pl.katarzynawojtowicz.winebase.model.Wine;
 
 public class SearchJFrame extends JFrame implements ActionListener {
 
@@ -37,6 +35,8 @@ public class SearchJFrame extends JFrame implements ActionListener {
 	private JComboBox<String> grapeVariety;
 	private JTable searchResultTable;
 	private DefaultTableModel model;
+
+	private WineDao dao = new WineDao();
 
 	public SearchJFrame() {
 		super("Winebase - Search");
@@ -168,31 +168,11 @@ public class SearchJFrame extends JFrame implements ActionListener {
 			model.removeRow(i);
 		}
 
-		try {
-			Class.forName("com.mysql.jdbc.Driver").newInstance();
-			Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/winebase", "root",
-					"password");
-			Statement statement = connection.createStatement();
-			ResultSet resultSet = statement.executeQuery("SELECT * FROM wine");
+		List<Wine> wineList = this.dao.findWine();
+		for (Wine w : wineList) {
 
-			while (resultSet.next()) {
-				String wineName = resultSet.getString("wine_name");
-				String wineCountry = resultSet.getString("wine_country");
-				int wineYear = resultSet.getInt("wine_year");
-				double winePrice = resultSet.getDouble("wine_price");
-				int type = resultSet.getInt("id_type");
-				int grapeVariety = resultSet.getInt("id_grape_variety");
-				int colour = resultSet.getInt("id_colour");
-
-				model.addRow(new Object[] { wineName, colour, wineCountry, wineYear, winePrice, grapeVariety, type });
-			}
-
-			statement.close();
-			connection.close();
-
-		} catch (InstantiationException | IllegalAccessException | ClassNotFoundException | SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			model.addRow(new Object[] { w.getWineName(), w.getIdColour(), w.getWineCountry(), w.getWineYear(),
+					w.getWinePrice(), w.getIdGrapeVariety(), w.getIdType() });
 		}
 
 	}
