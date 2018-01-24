@@ -176,11 +176,15 @@ public class SearchJFrame extends JFrame implements ActionListener {
 			ResultSet resultSet = statement.executeQuery("SELECT * FROM wine");
 
 			while (resultSet.next()) {
-				int idWine = resultSet.getInt("id_wine");
 				String wineName = resultSet.getString("wine_name");
 				String wineCountry = resultSet.getString("wine_country");
+				String wineYear = resultSet.getString("wine_year");
+				String winePrice = resultSet.getString("wine_price");
+				String type = resultSet.getString("id_type");
+				String grapeVariety = resultSet.getString("id_grape_variety");
+				String colour = resultSet.getString("id_colour");
 
-				model.addRow(new Object[] { idWine, wineName, wineCountry });
+				model.addRow(new Object[] { wineName, colour, wineCountry, wineYear, winePrice, grapeVariety, type });
 			}
 
 			statement.close();
