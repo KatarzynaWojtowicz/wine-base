@@ -141,7 +141,7 @@ public class SearchJFrame extends JFrame implements ActionListener {
 
 	private void createTable(JPanel searchPanel) {
 
-		Object[][] data = { { "Carlo Rossi", "pink", "USA", 2016, "5$", "Chardonnay", "Sweet" } };
+		Object[][] data = {};
 		Object columnName[] = { "Name", "Colour", "Country", "Year", "Price", "Grape Variety", "Type" };
 		model = new DefaultTableModel(data, columnName);
 		searchResultTable = new NonEditableJTable(model);
@@ -178,11 +178,11 @@ public class SearchJFrame extends JFrame implements ActionListener {
 			while (resultSet.next()) {
 				String wineName = resultSet.getString("wine_name");
 				String wineCountry = resultSet.getString("wine_country");
-				String wineYear = resultSet.getString("wine_year");
-				String winePrice = resultSet.getString("wine_price");
-				String type = resultSet.getString("id_type");
-				String grapeVariety = resultSet.getString("id_grape_variety");
-				String colour = resultSet.getString("id_colour");
+				int wineYear = resultSet.getInt("wine_year");
+				double winePrice = resultSet.getDouble("wine_price");
+				int type = resultSet.getInt("id_type");
+				int grapeVariety = resultSet.getInt("id_grape_variety");
+				int colour = resultSet.getInt("id_colour");
 
 				model.addRow(new Object[] { wineName, colour, wineCountry, wineYear, winePrice, grapeVariety, type });
 			}
