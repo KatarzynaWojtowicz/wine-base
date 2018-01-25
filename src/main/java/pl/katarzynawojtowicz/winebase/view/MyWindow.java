@@ -29,6 +29,8 @@ public class MyWindow extends JFrame implements ActionListener {
 	private JComboBox<String> grapeVariety;
 	private JTextArea wineDescription;
 
+	private WineDao wine = new WineDao();
+
 	public MyWindow() {
 		super("Winebase - Add");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -165,6 +167,7 @@ public class MyWindow extends JFrame implements ActionListener {
 		newWine.setWinePrice(Double.valueOf(price.getText()));
 		newWine.setWineDescription(wineDescription.getText());
 
+		wine.addWine(newWine);
 
 	}
 
