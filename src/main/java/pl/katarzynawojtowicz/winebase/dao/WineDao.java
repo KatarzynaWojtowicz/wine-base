@@ -33,7 +33,6 @@ public class WineDao {
 
 			while (resultSet.next()) {
 				Wine w = new Wine();
-
 				w.setWineName(resultSet.getString("wine_name"));
 				w.setWineCountry(resultSet.getString("wine_country"));
 				w.setWineYear(resultSet.getInt("wine_year"));
@@ -55,4 +54,5 @@ public class WineDao {
 		return wineList;
 
 	}
+
 }

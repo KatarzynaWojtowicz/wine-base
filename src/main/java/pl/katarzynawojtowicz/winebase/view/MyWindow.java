@@ -13,6 +13,7 @@ import javax.swing.JTextArea;
 import javax.swing.JTextField;
 
 import pl.katarzynawojtowicz.winebase.constants.ComboBoxValues;
+import pl.katarzynawojtowicz.winebase.model.Wine;
 
 public class MyWindow extends JFrame implements ActionListener {
 	private static final long serialVersionUID = 1L;
@@ -153,7 +154,15 @@ public class MyWindow extends JFrame implements ActionListener {
 	}
 
 	public void actionPerformed(ActionEvent arg0) {
-		System.out.println("button pressed");
+		Wine newWine = new Wine();
+		newWine.setWineName(name.getText());
+		newWine.setColour((String) colour.getSelectedItem());
+		newWine.setWineCountry(country.getText());
+		newWine.setWineType((String) type.getSelectedItem());
+		newWine.setWineYear(Integer.valueOf(year.getText()));
+		newWine.setGrapeVariety((String) grapeVariety.getSelectedItem());
+		newWine.setWinePrice(Double.valueOf(price.getText()));
+		newWine.setWineDescription(wineDescription.getText());
 
 	}
 
