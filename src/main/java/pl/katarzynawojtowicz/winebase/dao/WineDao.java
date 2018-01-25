@@ -7,6 +7,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
 
 import pl.katarzynawojtowicz.winebase.model.Wine;
 
@@ -55,4 +56,11 @@ public class WineDao {
 
 	}
 
+	public void addWine(Wine wine) {
+		String insertQuery = String.format(Locale.US,
+				"INSERT INTO wine VALUES (NULL, '%s', '%s', %d, %.2f, '%s', %s, %s, %s)", wine.getWineName(),
+				wine.getWineCountry(), wine.getWineYear(), wine.getWinePrice(), wine.getWineDescription(),
+				wine.getWineType(), wine.getGrapeVariety(), wine.getColour());
+		System.out.println(insertQuery);
+	}
 }

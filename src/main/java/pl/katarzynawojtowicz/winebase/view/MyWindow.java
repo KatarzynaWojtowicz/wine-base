@@ -13,6 +13,7 @@ import javax.swing.JTextArea;
 import javax.swing.JTextField;
 
 import pl.katarzynawojtowicz.winebase.constants.ComboBoxValues;
+import pl.katarzynawojtowicz.winebase.dao.WineDao;
 import pl.katarzynawojtowicz.winebase.model.Wine;
 
 public class MyWindow extends JFrame implements ActionListener {
@@ -163,6 +164,7 @@ public class MyWindow extends JFrame implements ActionListener {
 		newWine.setGrapeVariety((String) grapeVariety.getSelectedItem());
 		newWine.setWinePrice(Double.valueOf(price.getText()));
 		newWine.setWineDescription(wineDescription.getText());
+
 
 	}
 
