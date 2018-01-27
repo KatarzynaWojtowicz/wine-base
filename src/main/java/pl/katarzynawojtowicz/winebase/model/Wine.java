@@ -1,11 +1,11 @@
 package pl.katarzynawojtowicz.winebase.model;
 
 public class Wine {
-	private int idWine;
+	private Integer idWine;
 	private String wineName;
 	private String wineCountry;
-	private int wineYear;
-	private double winePrice;
+	private Integer wineYear;
+	private Double winePrice;
 	private String wineDescription;
 	private String wineType;
 	private String grapeVariety;

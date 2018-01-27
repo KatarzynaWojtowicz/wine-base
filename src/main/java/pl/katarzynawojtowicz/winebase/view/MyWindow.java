@@ -162,10 +162,20 @@ public class MyWindow extends JFrame implements ActionListener {
 		newWine.setColour((String) colour.getSelectedItem());
 		newWine.setWineCountry(country.getText());
 		newWine.setWineType((String) type.getSelectedItem());
-		newWine.setWineYear(Integer.valueOf(year.getText()));
 		newWine.setGrapeVariety((String) grapeVariety.getSelectedItem());
-		newWine.setWinePrice(Double.valueOf(price.getText()));
 		newWine.setWineDescription(wineDescription.getText());
+
+		try {
+			newWine.setWineYear(Integer.valueOf(year.getText()));
+		} catch (NumberFormatException e) {
+			// If no value in TextFields or wrong format - ignoring this field
+		}
+
+		try {
+			newWine.setWinePrice(Double.valueOf(price.getText()));
+		} catch (NumberFormatException e) {
+			// If no value in TextFields or wrong format - ignoring this field
+		}
 
 		wine.addWine(newWine);
 
