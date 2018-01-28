@@ -6,6 +6,6 @@ public class ComboBoxValues {
 	public static final String[] GRAPE_VARIETY = { "chardonnay", "sauvignon blanc", "riesling", "cabernet sauvignon",
 			"merlot", "pinot noir", "syrah" };
 
-	public final static String[] TYPE = { "dry", "semi - dry", "sweet", "semi - sweet" };
+	public final static String[] TYPE = { "dry", "semi-dry", "sweet", "semi-sweet" };
 
 }

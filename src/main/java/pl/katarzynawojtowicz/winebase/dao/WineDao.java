@@ -57,16 +57,23 @@ public class WineDao {
 	}
 
 	public void addWine(Wine wine) {
+
+		String typeSelect = String.format(Locale.US, "SELECT id_type FROM wine_type WHERE wine_type = '%s'",
+				wine.getWineType());
+		String grapeVarietySelect = String.format(Locale.US,
+				"SELECT id_grape_variety FROM grape_variety WHERE grape_variety = '%s'", wine.getGrapeVariety());
+		String colourSelect = String.format(Locale.US, "SELECT id_colour FROM colour WHERE colour = '%s'",
+				wine.getColour());
 		String insertQuery = String.format(Locale.US,
-				"INSERT INTO wine VALUES (NULL, '%s', '%s', %d, %f, '%s', %s, %s, %s)",
+				"INSERT INTO wine VALUES (NULL, '%s', '%s', %d, %.2f, '%s', (%s), (%s), (%s))",
 				wine.getWineName(),
 				wine.getWineCountry(),
 				wine.getWineYear(),
 				wine.getWinePrice(),
 				wine.getWineDescription(),
-				wine.getWineType(),
-				wine.getGrapeVariety(),
-				wine.getColour());
+				typeSelect,
+				grapeVarietySelect,
+				colourSelect);
 
 		System.out.println(insertQuery);
 	}
