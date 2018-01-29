@@ -74,7 +74,18 @@ public class WineDao {
 				typeSelect,
 				grapeVarietySelect,
 				colourSelect);
+		try {
+			Class.forName(DB_DRIVER).newInstance();
+			Connection connection = DriverManager.getConnection(DB_URL, DB_USER, DB_PASSWORD);
+			Statement statement = connection.createStatement();
+			statement.executeUpdate(insertQuery);
+		}
 
-		System.out.println(insertQuery);
+		catch (InstantiationException | IllegalAccessException | ClassNotFoundException | SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
 	}
+
 }
